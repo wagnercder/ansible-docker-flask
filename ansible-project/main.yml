@@ -1,0 +1,5 @@
+---
+- hosts: my_host
+  roles:
+    - environment
+    - application
