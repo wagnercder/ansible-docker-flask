@@ -1,13 +1,12 @@
 ---
 - name: 'Copy docker files to ansible'
   copy:
-    src: 'templates/docker-application'
+    src: 'templates/application'
     dest: /home
   become: yes
 
 - name: 'Run Docker Compose'
   docker_compose:
-    project_src: /home/docker-application
+    project_src: /home/application
     state: present
   become: yes
-    # log_path: /var/log/my_application.log  # optional

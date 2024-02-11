@@ -1,2 +1,2 @@
 [my_host]
-192.168.61.0 ansible_user=vagrant ansible_pass=vagrant ansible_ssh_private_key_file=/home/wqueiroz/dev/ansible/ansible-docker-flask/.vagrant/machines/my_host/virtualbox/private_key
+192.168.61.0 ansible_user=vagrant ansible_pass=vagrant ansible_ssh_private_key_file=/path_to_vagrant/.vagrant/machines/my_host/virtualbox/private_key
