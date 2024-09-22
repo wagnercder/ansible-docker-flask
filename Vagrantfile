@@ -1,9 +1,9 @@
 Vagrant.configure("2") do |config|
-  # config.vm.box = "bento/ubuntu-20.04" # ubuntu 20.04
-  config.vm.box = "ubuntu/bionic64" # ubuntu 18
+  config.vm.box = "generic/ubuntu2004"  # Ubuntu 20.04 (libvirt-compatible box)
 
-  config.vm.provider "virtualbox" do |v|
+  config.vm.provider "libvirt" do |v|
     v.memory = 1024
+    v.cpus = 2  # Optional: Specify CPU count if needed
   end
 
   config.vm.define "my_host" do |m|
