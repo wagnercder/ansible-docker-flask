@@ -1,5 +1,10 @@
 ---
 - hosts: my_host
+  become: yes
+  vars:
+    docker_port: 5000
+
   roles:
     - environment
     - application
+    - nginx

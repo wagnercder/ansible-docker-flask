@@ -9,14 +9,12 @@
       'software-properties-common'
     ]
     state: present
-  become: yes
   tags:
     - docker-installation
 
 - name: 'Add Docker GPG key'
   apt_key:
     url: 'https://download.docker.com/linux/ubuntu/gpg'
-  become: yes
   tags:
     - docker-installation
 
@@ -26,7 +24,6 @@
     repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable"
   notify:
     - update cache
-  become: yes
   tags:
     - docker-installation
 
@@ -34,18 +31,21 @@
   apt:
     name: ['docker-ce', 'docker-ce-cli', 'containerd.io', 'docker-compose']
     state: present
-  become: yes
   tags:
     - docker-installation
 
 - name: 'Install Python module'
   apt:
     name:
-      - python3-pip  # Install pip for Python 3
-  become: yes
+      - python3-pip
 
 - name: 'Install Docker Python module'
   pip:
     name: ['docker', 'docker-compose']
-    executable: pip3  # Use pip3 for Python 3
-  become: yes
+    executable: pip3
+
+- name: 'Install Nginx'
+  apt:
+    name: nginx
+    state: present
+  tags: nginx

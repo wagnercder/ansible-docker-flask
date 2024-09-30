@@ -3,10 +3,8 @@
   copy:
     src: 'files/docker-application'
     dest: /home
-  become: yes
 
 - name: 'Run Docker Compose'
   docker_compose:
-    project_src: /home/application
+    project_src: /home/docker-application
     state: present
-  become: yes
